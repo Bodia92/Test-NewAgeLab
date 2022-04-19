@@ -772,14 +772,21 @@ body {
   }
 }
 
-@media (min-width: 77.5em) {
-  .no-webp .header__language{
-    background: url("../img/bg_leng.png") 46% 0 no-repeat; }
-}
-
 @media (min-width: 62em) {
   .no-webp .header__language{
-    background: url("../img/bg_leng.png") 50% 0 no-repeat; }
+    background: url("../img/bg_leng.png") 46% 0 no-repeat; }
+
+@supports (left: clamp( -0.625rem , -4.6875004063rem  +  5.0000005vw , 0.0000000625rem )) {
+    .header__language {
+      left: clamp( -0.625rem , -4.6875004063rem  +  5.0000005vw , 0.0000000625rem );
+    }
+}
+
+@supports not (left: clamp( -0.625rem , -4.6875004063rem  +  5.0000005vw , 0.0000000625rem )) {
+    .header__language {
+      left: calc(-0.625rem + 0.6250000625 * (100vw - 81.25rem) / 12.5);
+    }
+}
 }
 
 @media (max-width: 62em) {
@@ -1013,10 +1020,6 @@ body {
   .webp .form__wrapper::before{ background: url(../img/shadow_form.webp) 0 0/cover no-repeat; }
 }
 
-@media (min-width: 77.5em){
-  .webp .header__language{ background: url(../img/bg_leng.webp) 46% 0 no-repeat; }
-}
-
 @media (min-width: 62em){
-  .webp .header__language{ background: url(../img/bg_leng.webp) 50% 0 no-repeat; }
+  .webp .header__language{ background: url(../img/bg_leng.webp) 46% 0 no-repeat; }
 }
